@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" >
+        <h1 class="text-center p-4">TO DO LIST</h1>
+       
+            <form action="/insertion" method="post" class="mx-auto p-2">
+                <label  class="form-label">Add Task</label>
+                <input type="text" id="" class="form-control"   name="task">
+                
+                <button class="btn border m-1">add task</button>
+                
+                <table class="table table-dark table-striped-columns w-100">
+                <tr>
+                    <th class="text-center d-none" style="width: 50px;">no</th>
+                    <th class="text-center" style="width: 600px;">Task</th>
+                    <th class="text-center" style="width: 100px;">edit</th>
+                    <th  class="text-center" style="width: 100px;">delet</th>
+                   
+                </tr>
+               
+                    <%Addtask.map((val)=>{ %>
+                        <tr>
+                            <td class="text-white d-none"><%= val.id %></td>  
+                        <td class="text-white " ><%= val.task %></td>
+                        <!-- <span class="d-none"><%= val.id %> </span> -->
+                        <td class="text-white"><a class="text-white" href="/editData?id=<%=val.id%>">edit</a></td>
+                        <td class="text-white"><a class="text-white" href="/deletData?id=<%=val.id%>">delet</a></td>
+                    </tr>
+                   <% })%>
+                   
+               
+            </form>
+        </table>
+
+
+    </div>
+    
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>
